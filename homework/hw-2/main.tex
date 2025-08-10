@@ -15,6 +15,12 @@
 
 \maketitle
 
+% Use this line for numeric format (1.1, 1.2, ...)
+% \renewcommand{\thep}{\thesection.\arabic{p}}
+
+% Use this line for alphabetic format (1.a, 1.b, ...)
+\renewcommand{\thep}{\thesection.\alph{p}}
+
 % PROBLEMS %
 
 % Problem 1 %
@@ -59,6 +65,8 @@ This script implements $f(x, y) = [\max(x, y), \min(x, y)]$.
 
 % Problem 4
 \section{Problem}
+
+Source(s): \cite{githubBitcoinTransactions}
 
 \begin{verbatim}
 version: 01000000
@@ -109,10 +117,18 @@ Given that \textit{F2Pool} has 20\% of the network's total hash rate, and that \
 
 The probability density function is $\frac{1}{3000}e^{-t/3000}$ and the mean is 3000 seconds.
 
-Here is some problem text and here is a citation: \citep{somekey}.
+% Problem 5b
+\begin{p}\end{p}
+Since each mining event can be considered independent of each other (where each miner has an equal, random probability of finding a hash that scales with hash rate) and that \textit{F2Pool} has 20\% of the network's total hash rate, we can conclude that there is a 20\% probability that th next block is mined by \textit{F2Pool}.
+
+% Problem 5c
+\begin{p}\end{p}
+To successfully execute the attack, the attacker would have to mine 2 of the 3 blocks to gain the longest chain and thus overwrite the ledger. Supposing \textit{F2Pool} has a hash rate that is 20\% of the total network hash rate, the probability that the next block would be mined by \textit{F2Pool} is $3 \cdot (0.2)^2 \cdot 0.8 = 0.096$.
+
+The attackers would first have to add a transaction to $B$, then mine the subsequent 2 blocks to by making their private chain public. In this case, the attacker would have to mine all 3 blocks after the transaction enters the mempool. The probability that this attack will succeed is $3 \cdot (0.2)^2 \cdot 0.8 + (0.2)^3 = 0.104$.
 
 % Bibliography %
-\bibliographystyle{plainnat}
+\bibliographystyle{unsrt}
 \bibliography{references}
 
 \end{document}
